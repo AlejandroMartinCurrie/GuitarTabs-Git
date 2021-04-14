@@ -5,18 +5,31 @@ using UnityEngine;
 public class SocketColor : MonoBehaviour
 {
     public Color currentColor;
+    public GameObject[] socketCollection;
 
     void Start()
     {
-        currentColor = GetComponentInChildren<SpriteRenderer>().color;    
+        //currentColor = socketCollection.GetComponentInChildren<SpriteRenderer>().color;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        foreach(GameObject sp in socketCollection)
+        {
+
+        }
         if(ChordList.GetSocketActive())
         {
-            print("Activo");
+            print(currentColor);
+                        socketCollection.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
+
+        }
+        else
+        {
+            socketCollection.GetComponentInChildren<SpriteRenderer>().color = currentColor;
         }
     }
 }
